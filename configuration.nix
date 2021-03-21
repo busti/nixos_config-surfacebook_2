@@ -23,7 +23,7 @@
         enable = true;
         version = 2;
         device = "nodev";
-        useOSProber = true;
+        # useOSProber = true;
         efiSupport = true;
         enableCryptodisk = true;
       };
