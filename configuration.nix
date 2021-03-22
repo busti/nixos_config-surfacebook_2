@@ -30,7 +30,7 @@
     };
     initrd.luks.devices = {
       root = {
-        device = (builtins.readFile ./uuid_boot.txt);
+        device = "/dev/disk/by-uuid/" + (builtins.readFile ./uuid_boot.txt);
         preLVM = true;
       };
     };
