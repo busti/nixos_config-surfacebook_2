@@ -23,14 +23,14 @@
         enable = true;
         version = 2;
         device = "nodev";
-        # useOSProber = true;
+        useOSProber = true;
         efiSupport = true;
         enableCryptodisk = true;
       };
     };
     initrd.luks.devices = {
       root = {
-        device = "/dev/disk/by-label/cryptroot";
+        device = "/dev/nvme0n1p5";
         preLVM = true;
       };
     };
