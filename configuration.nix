@@ -30,7 +30,7 @@
     };
     initrd.luks.devices = {
       root = {
-        device = "/dev/nvme0n1p5";
+        device = (builtins.readFile ./uuid_boot.txt);
         preLVM = true;
       };
     };
