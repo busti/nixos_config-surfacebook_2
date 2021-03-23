@@ -14,7 +14,7 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/vg0/radix";
+    device = "/dev/disk/by-label/radix";
     fsType = "ext4";
   };
 
@@ -24,7 +24,7 @@
   };
 
   swapDevices = [
-    { device = "/dev/vg0/swap"; }
+    { device = "/dev/disk/by-label/swap"; }
   ];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
