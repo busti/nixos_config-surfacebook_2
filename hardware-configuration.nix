@@ -14,7 +14,7 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/vg0/root";
+    device = "/dev/vg0/radix";
     fsType = "ext4";
   };
 
