@@ -19,12 +19,12 @@
   };
 
   fileSystems."/boot" = {
-    device = "/dev/vg0/boot";
+    device = "/dev/disk/by-label/boot";
     fsType = "ext4";
   };
 
   swapDevices = [
-    { device = "/dev/disk/by-label/swap"; }
+    { device = "/dev/vg0/swap"; }
   ];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
