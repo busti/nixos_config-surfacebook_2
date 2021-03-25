@@ -79,8 +79,15 @@
     initialPassword = "changeme"; # fixme: remove for final install
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  nix = {
+    binaryCaches = [
+      "https://nixcache.neulandlabor.de"
+    ];
+    binaryCachePublicKeys = [
+      "nixcache.neulandlabor.de:iWPJklU/Tq9NdFWUcO8S7TBHwUjyZMjKIkCIWOei/Tw="
+    ];
+  };
+
   environment.systemPackages = with pkgs; [
     wget curl htop vim
     firefox
