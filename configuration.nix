@@ -43,7 +43,7 @@
   # replicates the default behaviour.
   networking.useDHCP = false;
   networking.interfaces.wlp1s0.useDHCP = true;
-  # networking.interfaces.enp
+  networking.interfaces.enp0s20f0u1u2.useDHCP = true;
 
   # Select internationalisation properties.
   # i18n.defaultLocale = "en_US.UTF-8";
