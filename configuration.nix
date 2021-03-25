@@ -89,7 +89,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    wget curl htop vim
+    wget curl git htop vim
     firefox
   ];
 
