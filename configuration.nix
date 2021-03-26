@@ -1,10 +1,17 @@
 { config, pkgs, ... }:
 
+let
+  home-manager = builtins.fetchGit {
+    url = "https://github.com/rycee/home-manager.git";
+    rev = "fedfd430f96695997b3eaf8d7e82ca79406afa23";
+  };
+in
 {
   imports =
     [
       "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/microsoft/surface"
       ./hardware-configuration.nix
+      ( import "${home-manager}/nixos" )
     ];
 
   nixpkgs.config.allowUnfree = true;
