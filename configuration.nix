@@ -88,8 +88,8 @@ in
 
   nix = {
     nixPath = [
-      "nixpkgs=https://nixos.org/channels/nixpkgs-unstable"
-      "nixos=https://nixos.org/channels/nixos-unstable"
+      "nixpkgs=https://channels.nixos.org/nixpkgs-unstable"
+      "nixos=https://channels.nixos.org/nixos-unstable"
     ];
     binaryCaches = [ "https://nixcache.neulandlabor.de" ];
     binaryCachePublicKeys = [ "nixcache.neulandlabor.de:iWPJklU/Tq9NdFWUcO8S7TBHwUjyZMjKIkCIWOei/Tw=" ];
