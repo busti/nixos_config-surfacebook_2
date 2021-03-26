@@ -88,7 +88,7 @@ in
 
   nix = {
     nixPath = [
-      # "nixpkgs=https://nixos.org/channels/nixpkgs-unstable"
+      "nixpkgs=https://nixos.org/channels/nixpkgs-unstable"
       "nixos=https://nixos.org/channels/nixos-unstable"
     ];
     binaryCaches = [ "https://nixcache.neulandlabor.de" ];
