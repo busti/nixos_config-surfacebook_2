@@ -2,7 +2,7 @@
 
 let
   home-manager = builtins.fetchGit {
-    url = "https://github.com/rycee/home-manager.git";
+    url = "https://github.com/nix-community/home-manager.git";
     rev = "fedfd430f96695997b3eaf8d7e82ca79406afa23";
   };
 in
@@ -88,8 +88,8 @@ in
 
   nix = {
     nixPath = [
-      "nixpkgs=https://nixos.org/channels/nixpkgs-unstable"
-      "nixos=https://nixos.org/channels/nixos-unstable"
+      # "nixpkgs=https://nixos.org/channels/nixpkgs-unstable"
+      # "nixos=https://nixos.org/channels/nixos-unstable"
     ];
     binaryCaches = [ "https://nixcache.neulandlabor.de" ];
     binaryCachePublicKeys = [ "nixcache.neulandlabor.de:iWPJklU/Tq9NdFWUcO8S7TBHwUjyZMjKIkCIWOei/Tw=" ];
