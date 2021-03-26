@@ -3,7 +3,7 @@
 {
   imports =
     [
-      # "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/microsoft/surface"
+      "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/microsoft/surface"
       ./hardware-configuration.nix
     ];
 
@@ -80,12 +80,16 @@
   };
 
   nix = {
+    nixPath = [
+      "nixpkgs=https://nixos.org/channels/nixpkgs-unstable"
+      "nixos=https://nixos.org/channels/nixos-unstable"
+    ];
     binaryCaches = [ "https://nixcache.neulandlabor.de" ];
     binaryCachePublicKeys = [ "nixcache.neulandlabor.de:iWPJklU/Tq9NdFWUcO8S7TBHwUjyZMjKIkCIWOei/Tw=" ];
   };
 
   environment.systemPackages = with pkgs; [
-    wget curl htop vim
+    wget curl git htop vim
     firefox
   ];
 
