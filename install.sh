@@ -45,6 +45,7 @@ mkdir ~/install
     echo w # write changes to disk
   ) | fdisk "$DEVICE"
 
+
   lsblk
 
   echo "partitioning disk"
@@ -63,6 +64,7 @@ mkdir ~/install
     echo w   # write changes to disk
   ) | fdisk "$DEVICE"
 
+  partprobe "$DEVICE"
   lsblk
 
   echo "generating boot partition filesystem"
