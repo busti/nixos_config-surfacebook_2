@@ -80,12 +80,8 @@
   };
 
   nix = {
-    binaryCaches = [
-      "https://nixcache.neulandlabor.de"
-    ];
-    binaryCachePublicKeys = [
-      "nixcache.neulandlabor.de:iWPJklU/Tq9NdFWUcO8S7TBHwUjyZMjKIkCIWOei/Tw="
-    ];
+    binaryCaches = [ "https://nixcache.neulandlabor.de" ];
+    binaryCachePublicKeys = [ "nixcache.neulandlabor.de:iWPJklU/Tq9NdFWUcO8S7TBHwUjyZMjKIkCIWOei/Tw=" ];
   };
 
   environment.systemPackages = with pkgs; [
