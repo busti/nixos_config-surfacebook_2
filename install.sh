@@ -112,10 +112,6 @@ mkdir ~/install
 
   echo "installing"
   nixos-install
-  nixos-enter --root /mnt
-  (
-    echo $ROOT_PASSWORD
-    echo $ROOT_PASSWORD
-  ) | passwd
+  nixos-enter -c "echo $ROOT_PASSWORD | passwd --stdin root" --root /mnt
   exit
 )
