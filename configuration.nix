@@ -69,12 +69,26 @@ in
   networking.interfaces.wlp1s0.useDHCP = true;
   networking.interfaces.enp0s20f0u1u2.useDHCP = true;
 
-  services.xserver.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true; # so that gtk works properly
+    extraPackages = with pkgs; [
+      swaylock
+      swayidle
+      # wl-clipboard
+      # mako # notification daemon
+      # alacritty # Alacritty is the default terminal in the config
+      dmenu # Dmenu is the default in the config but i recommend wofi since its wayland native
+    ];
+  };
+
+
+  # services.xserver.enable = true;
+  # services.xserver.displayManager.sddm.enable = true;
+  # services.xserver.desktopManager.plasma5.enable = true;
   
-  services.xserver.layout = "de";
-  services.xserver.xkbOptions = "eurosign:e";
+  # services.xserver.layout = "de";
+  # services.xserver.xkbOptions = "eurosign:e";
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
