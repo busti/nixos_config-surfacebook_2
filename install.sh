@@ -66,6 +66,7 @@ mkdir ~/install
 
   partprobe "$DEVICE"
   lsblk
+  sleep 1
 
   echo "generating boot partition filesystem"
   yes | mkfs.fat -F 32 -n boot "$DEVICE$PART_BOOT"
