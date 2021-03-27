@@ -1,17 +1,35 @@
 { config, pkgs, ... }:
 
 let
-  home-manager = builtins.fetchGit {
+  path_nixpkgs-unstable = builtins.fetchTarball "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
+
+  path_home-manager = builtins.fetchGit {
     url = "https://github.com/nix-community/home-manager.git";
     rev = "fedfd430f96695997b3eaf8d7e82ca79406afa23";
   };
 in
 {
+  nixpkgs.config.packageOverrides = pkgs: {
+    unstable = import path_nixpkgs-unstable {
+      config = config.nixpkgs.config;
+    };
+  };
+
+  nix = {
+    binaryCaches = [ "https://nixcache.neulandlabor.de" ];
+    binaryCachePublicKeys = [ "nixcache.neulandlabor.de:iWPJklU/Tq9NdFWUcO8S7TBHwUjyZMjKIkCIWOei/Tw=" ];
+  };
+
+  environment.systemPackages = with pkgs; [
+    wget curl git htop vim
+    firefox
+  ];
+
   imports =
     [
       "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/microsoft/surface"
       ./hardware-configuration.nix
-      ( import "${home-manager}/nixos" )
+      ( import "${path_home-manager}/nixos" )
     ];
 
   nixpkgs.config.allowUnfree = true;
@@ -85,20 +103,6 @@ in
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     initialPassword = "changeme"; # fixme: remove for final install
   };
-
-  nix = {
-    nixPath = [
-      "nixpkgs=https://channels.nixos.org/nixpkgs-unstable"
-      "nixos=https://channels.nixos.org/nixos-unstable"
-    ];
-    binaryCaches = [ "https://nixcache.neulandlabor.de" ];
-    binaryCachePublicKeys = [ "nixcache.neulandlabor.de:iWPJklU/Tq9NdFWUcO8S7TBHwUjyZMjKIkCIWOei/Tw=" ];
-  };
-
-  environment.systemPackages = with pkgs; [
-    wget curl git htop vim
-    firefox
-  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
