@@ -57,33 +57,22 @@ in
     };
   };
 
-  networking.hostName = "traal"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Set your time zone.
   time.timeZone = "Europe/Berlin";
-
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.useDHCP = false;
-  networking.interfaces.wlp1s0.useDHCP = true;
-  networking.interfaces.enp0s20f0u1u2.useDHCP = true;
-
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font = "Lat2-Terminus16";
     keyMap = "de";
   };
 
-  # Enable the Plasma 5 Desktop Environment.
+  networking.hostName = "traal";
+  networking.useDHCP = false;
+  networking.interfaces.wlp1s0.useDHCP = true;
+  networking.interfaces.enp0s20f0u1u2.useDHCP = true;
+
   services.xserver.enable = true;
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
   
-
-  # Configure keymap in X11
   services.xserver.layout = "de";
   services.xserver.xkbOptions = "eurosign:e";
 
@@ -97,7 +86,6 @@ in
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.mbust = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
