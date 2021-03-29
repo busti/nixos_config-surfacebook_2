@@ -30,7 +30,7 @@ in
       "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/microsoft/surface"
       ./hardware-configuration.nix
       ( import "${path_home-manager}/nixos" )
-      ./sway.nix
+      # ./sway.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
@@ -70,12 +70,12 @@ in
   networking.interfaces.wlp1s0.useDHCP = true;
   networking.interfaces.enp0s20f0u1u2.useDHCP = true;
 
-  # services.xserver.enable = true;
-  # services.xserver.displayManager.sddm.enable = true;
-  # services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.enable = true;
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.desktopManager.plasma5.enable = true;
   
-  # services.xserver.layout = "de";
-  # services.xserver.xkbOptions = "eurosign:e";
+  services.xserver.layout = "de";
+  services.xserver.xkbOptions = "eurosign:e";
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
