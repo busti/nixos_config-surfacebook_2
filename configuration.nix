@@ -22,7 +22,7 @@ in
 
   environment.systemPackages = with pkgs; [
     wget curl git htop vim
-    firefox
+    firefox jetbrains.idea-community
   ];
 
   imports =
@@ -31,6 +31,7 @@ in
       ./hardware-configuration.nix
       ( import "${path_home-manager}/nixos" )
       # ./sway.nix
+      ./surface.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
