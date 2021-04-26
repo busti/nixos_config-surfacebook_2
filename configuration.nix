@@ -31,7 +31,7 @@ in
       ./hardware-configuration.nix
       ( import "${path_home-manager}/nixos" )
       # ./sway.nix
-      ./surface.nix
+      # ./surface.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
