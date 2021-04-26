@@ -37,7 +37,7 @@ mkdir ~/install
   lsblk
 
   echo "deleting old linux partitions if present"
-  (
+  ( trap 'sleep .1' DEBUG
     echo d # delete a partition
     echo 5 # partition number	=> 5
     echo d # delete a partition
@@ -49,7 +49,7 @@ mkdir ~/install
   lsblk
 
   echo "partitioning disk"
-  (
+  ( trap 'sleep .1' DEBUG
     echo n   # add a new partition	=> boot
     echo     # partition number		=> count + 1
     echo     # first sector		=> after last
@@ -113,6 +113,6 @@ mkdir ~/install
 
   echo "installing"
   nixos-install
-  nixos-enter -c "echo $ROOT_PASSWORD | passwd --stdin root" --root /mnt
+  nixos-enter -c "echo root:$ROOT_PASSWORD | chpasswd" --root /mnt
   exit
 )
