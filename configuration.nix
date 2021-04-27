@@ -79,10 +79,21 @@ in
     keyMap = "de";
   };
 
-  networking.hostName = "traal";
-  networking.useDHCP = false;
-  networking.interfaces.wlp1s0.useDHCP = true;
-  networking.interfaces.enp0s20f0u1u2.useDHCP = true;
+  networking = {
+    hostName = "traal";
+    networkmanager = {
+      enable = true;
+      wifi.backend = "iwd";
+      unmanaged = [ "type:wifi" ];
+    };
+    wireless = {
+      # enable = true;
+      iwd.enable = true;
+      networks = {
+        "hannover.freifunk.net" = {};
+      };
+    };
+  };
 
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
@@ -91,7 +102,9 @@ in
   services.xserver.layout = "de";
   services.xserver.xkbOptions = "eurosign:e";
 
-  services.xserver.videoDrivers = [ "displaylink" "modesetting" "nvidia" "intel" ];
+  services.xserver.videoDrivers = [ "displaylink" "modesetting" "intel" ];
+  hardware.opengl.driSupport32Bit = true;
+  hardware.bumblebee.enable = true;
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -105,7 +118,7 @@ in
 
   users.users.mbust = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
     initialPassword = "changeme"; # fixme: remove for final install
   };
 
