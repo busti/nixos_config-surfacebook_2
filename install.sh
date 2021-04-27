@@ -112,7 +112,7 @@ mkdir ~/install
   nixos-generate-config --root /mnt
 
   echo "installing"
-  nixos-install
+  nixos-install --no-root-passwd
   nixos-enter -c "echo root:$ROOT_PASSWORD | chpasswd" --root /mnt
   exit
 )
