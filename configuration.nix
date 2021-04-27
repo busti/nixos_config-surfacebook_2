@@ -18,6 +18,19 @@ in
   nix = {
     binaryCaches = [ "https://nixcache.neulandlabor.de" ];
     binaryCachePublicKeys = [ "nixcache.neulandlabor.de:iWPJklU/Tq9NdFWUcO8S7TBHwUjyZMjKIkCIWOei/Tw=" ];
+    buildMachines = [{
+      hostName = "builder";
+      system = "x86_64-linux";
+      maxJobs = 1;
+      speedFactor = 2;
+      supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+      mandatoryFeatures = [ ];
+    }];
+    distributedBuilds = true;
+    extraOptions = ''
+      builders-use-substitutes = true
+    '';
+
   };
 
   environment.systemPackages = with pkgs; [
@@ -74,9 +87,11 @@ in
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome3.enable = true;
-  
+
   services.xserver.layout = "de";
   services.xserver.xkbOptions = "eurosign:e";
+
+  services.xserver.videoDrivers = [ "displaylink" "modesetting" "nvidia" "intel" ];
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -122,4 +137,3 @@ in
   system.stateVersion = "20.09"; # Did you read the comment?
 
 }
-
