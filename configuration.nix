@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 
 let
   path_nixpkgs-unstable = builtins.fetchTarball "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
@@ -9,6 +9,12 @@ let
   };
 in
 {
+  nixpkgs.overlays = [
+    (self: super: {
+      ungoogled-chromium = super.ungoogled-chromium.override { libvaSupport = true; };
+    })
+  ];
+
   nixpkgs.config.packageOverrides = pkgs: {
     unstable = import path_nixpkgs-unstable {
       config = config.nixpkgs.config;
@@ -35,7 +41,8 @@ in
 
   environment.systemPackages = with pkgs; [
     wget curl git htop vim
-    firefox jetbrains.idea-community
+    firefox chromium # (ungoogled-chromium.override { libvaSupport = true; })
+    jetbrains.idea-community
   ];
 
   imports =
@@ -44,7 +51,7 @@ in
       ./hardware-configuration.nix
       ( import "${path_home-manager}/nixos" )
       # ./sway.nix
-      # ./surface.nix
+      ./surface.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
@@ -83,28 +90,89 @@ in
     hostName = "traal";
     networkmanager = {
       enable = true;
-      wifi.backend = "iwd";
-      unmanaged = [ "type:wifi" ];
+      # wifi.backend = "iwd";
+      # unmanaged = [ "type:gsm" ];
     };
-    wireless = {
-      # enable = true;
-      iwd.enable = true;
-      networks = {
-        "hannover.freifunk.net" = {};
-      };
-    };
+    # wireless = {
+    #  enable = true;
+    #  iwd.enable = true;
+    #  networks = {
+    #    "hannover.freifunk.net" = {};
+    #  };
+    #};
   };
 
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome3.enable = true;
+  environment.pathsToLink = [ "/libexec" ];
 
-  services.xserver.layout = "de";
-  services.xserver.xkbOptions = "eurosign:e";
-
-  services.xserver.videoDrivers = [ "displaylink" "modesetting" "intel" ];
-  hardware.opengl.driSupport32Bit = true;
-  hardware.bumblebee.enable = true;
+  services.xserver = {
+    enable = true;
+    exportConfiguration = true;
+    videoDrivers = [ "displaylink" "intel" "nvidia" ];
+    deviceSection = ''
+      Option "DRI" "3"
+      Option "TearFree" "true"
+      Option "PageFlip" "off"
+      Option "RandRRotation" "True"
+    '';
+    extraConfig = ''
+      Section "OutputClass"
+        Identifier "DLRot"
+        MatchDriver "evdi"
+        Option "PageFlip" "off"
+      EndSection
+    '';
+    #extraConfig = ''
+    #  Section "Monitor"
+    #    Identifier "eDP1"
+    #  EndSection
+    #
+    #  Section "Monitor"
+    #    Identifier "DVI-I-2-1"
+    #    Option "LeftOf" "eDP1"
+    #    Option "PreferredMode" "1680x1050"
+    #  EndSection
+    #
+    #  Section "Monitor"
+    #    Identifier "DP1-1"
+    #    Modeline "lggarbage" 138.50 1920 1968 2000 2080 1080 1083 1088 1111 +hsync -vsync
+    #    Option "PreferredMode" "lggarbage"
+    #    Option "LeftOf" "DVI-I-2-1"
+    #  EndSection
+    #
+    #  Section "Monitor"
+    #    Identifier "DP1-2"
+    #    Option "Above" "DP1-1"
+    #  EndSection
+    #
+    #  Section "Monitor"
+    #    Identifier "DVI-I-3-2"
+    #    Option "LeftOf" "DP1-1"
+    #    Option "PreferredMode" "1600x1200"
+    #  EndSection
+    #'';
+    desktopManager = {
+      xterm.enable = false;
+    };
+    displayManager = {
+      defaultSession = "none+i3";
+      sessionCommands = let xrandr = "${lib.getBin pkgs.xorg.xrandr}/bin/xrandr"; in ''
+        ${xrandr} --setprovideroutputsource 1 0
+        ${xrandr} --setprovideroutputsource 2 0
+        ${xrandr} --output DVI-I-2-1 --right-of eDP1 --mode 1680x1050
+        ${xrandr} --newmode "lggarbage" 138.50 1920 1968 2000 2080  1080 1083 1088 1111 +hsync -vsync
+        ${xrandr} --addmode DP1-1 lggarbage
+        ${xrandr} --output DP1-1 --mode lggarbage --right-of DVI-I-2-1
+        ${xrandr} --output DP1-2 --above DP1-1
+        ${xrandr} --output DVI-I-3-2 --right-of DP1-1 --mode 1600x1200
+      '';
+    };
+    windowManager.i3 = {
+      enable = true;
+      extraPackages = with pkgs; [
+        dmenu i3status i3lock
+      ];
+    };
+  };
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -150,3 +218,14 @@ in
   system.stateVersion = "20.09"; # Did you read the comment?
 
 }
+
+
+
+
+
+
+
+
+
+
+
