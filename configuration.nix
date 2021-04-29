@@ -41,11 +41,12 @@ in
 
   imports =
     [
-      "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/microsoft/surface"
       ./hardware-configuration.nix
       ( import "${path_home-manager}/nixos" )
       # ./sway.nix
-      ./surface.nix
+      ./hardware/surfacebook_2.nix
+      ./workplaces/home_desk.nix
+      ./hosts/traal.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
@@ -81,19 +82,9 @@ in
   };
 
   networking = {
-    hostName = "traal";
     networkmanager = {
       enable = true;
-      # wifi.backend = "iwd";
-      # unmanaged = [ "type:gsm" ];
     };
-    # wireless = {
-    #  enable = true;
-    #  iwd.enable = true;
-    #  networks = {
-    #    "hannover.freifunk.net" = {};
-    #  };
-    #};
   };
 
   environment.pathsToLink = [ "/libexec" ];
@@ -101,20 +92,6 @@ in
   services.xserver = {
     enable = true;
     exportConfiguration = true;
-    videoDrivers = [ "displaylink" "intel" "nvidia" ];
-    deviceSection = ''
-      Option "DRI" "3"
-      Option "TearFree" "true"
-      Option "PageFlip" "off"
-      Option "RandRRotation" "True"
-    '';
-    extraConfig = ''
-      Section "OutputClass"
-        Identifier "DLRot"
-        MatchDriver "evdi"
-        Option "PageFlip" "off"
-      EndSection
-    '';
     libinput.enable = true;
     desktopManager = {
       xterm.enable = false;
@@ -139,8 +116,6 @@ in
       ];
     };
   };
-
-  boot.kernelParams = [ "i915.enable_psr=0" ]; # [ "i915.enable_dc=0" "i915.disable_power_well=1" "enable_fbc=0" ];
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
