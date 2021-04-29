@@ -2,7 +2,7 @@
 
 {
   services.xserver = {
-    videoDriver = [ "displaylink" ];
+    videoDrivers = [ "displaylink" ];
     extraConfig = ''
       Section "OutputClass"
         Identifier "DLRot"
