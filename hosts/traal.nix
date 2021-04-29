@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }:
 
 {
-  networking.hostname = "traal";
+  networking.hostName = "traal";
 }
