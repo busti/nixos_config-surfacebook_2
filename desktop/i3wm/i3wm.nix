@@ -18,4 +18,6 @@
       ];
     };
   };
+
+  environment.etc."i3/config".source = ./common.conf;
 }
