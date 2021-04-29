@@ -9,12 +9,6 @@ let
   };
 in
 {
-  nixpkgs.overlays = [
-    (self: super: {
-      ungoogled-chromium = super.ungoogled-chromium.override { libvaSupport = true; };
-    })
-  ];
-
   nixpkgs.config.packageOverrides = pkgs: {
     unstable = import path_nixpkgs-unstable {
       config = config.nixpkgs.config;
@@ -41,7 +35,7 @@ in
 
   environment.systemPackages = with pkgs; [
     wget curl git htop vim
-    firefox chromium # (ungoogled-chromium.override { libvaSupport = true; })
+    firefox ungoogled-chromium
     jetbrains.idea-community
   ];
 
@@ -121,35 +115,7 @@ in
         Option "PageFlip" "off"
       EndSection
     '';
-    #extraConfig = ''
-    #  Section "Monitor"
-    #    Identifier "eDP1"
-    #  EndSection
-    #
-    #  Section "Monitor"
-    #    Identifier "DVI-I-2-1"
-    #    Option "LeftOf" "eDP1"
-    #    Option "PreferredMode" "1680x1050"
-    #  EndSection
-    #
-    #  Section "Monitor"
-    #    Identifier "DP1-1"
-    #    Modeline "lggarbage" 138.50 1920 1968 2000 2080 1080 1083 1088 1111 +hsync -vsync
-    #    Option "PreferredMode" "lggarbage"
-    #    Option "LeftOf" "DVI-I-2-1"
-    #  EndSection
-    #
-    #  Section "Monitor"
-    #    Identifier "DP1-2"
-    #    Option "Above" "DP1-1"
-    #  EndSection
-    #
-    #  Section "Monitor"
-    #    Identifier "DVI-I-3-2"
-    #    Option "LeftOf" "DP1-1"
-    #    Option "PreferredMode" "1600x1200"
-    #  EndSection
-    #'';
+    libinput.enable = true;
     desktopManager = {
       xterm.enable = false;
     };
@@ -173,6 +139,8 @@ in
       ];
     };
   };
+
+  boot.kernelParams = [ "i915.enable_psr=0" ]; # [ "i915.enable_dc=0" "i915.disable_power_well=1" "enable_fbc=0" ];
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
