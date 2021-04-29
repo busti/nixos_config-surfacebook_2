@@ -13,7 +13,12 @@
     };
     windowManager.i3 = {
       enable = true;
-      configFile = /etc/i3/config;
+      extraSessionCommands = ''
+        if [ ! -f /home/$USER/.config/i3/config ]; then
+          mkdir -p /home/$USER/.config/i3/config
+          cp /etc/i3/config /home/$USER/.config/i3/config
+        fi
+      '';
       extraPackages = with pkgs; [
         dmenu i3status i3lock
       ];
