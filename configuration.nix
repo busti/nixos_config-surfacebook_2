@@ -35,7 +35,6 @@ in
 
   environment.systemPackages = with pkgs; [
     wget curl git htop vim
-    firefox ungoogled-chromium
     jetbrains.idea-community
   ];
 
@@ -48,6 +47,8 @@ in
       ./workplaces/home_desk.nix
       ./hosts/traal.nix
       ./desktop/i3wm/i3wm.nix
+      ./software/chromium.nix
+      ./software/vscode.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
