@@ -18,7 +18,7 @@ let
     vscodeExtensions = extensions;
   };
 in {
-  environment.systemPackages = [
-    vscodium-with-extensions
+  environment.systemPackages = with pkgs; [
+    vscodium-with-extensions rnix-lsp
   ];
 }
