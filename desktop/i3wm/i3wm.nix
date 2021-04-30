@@ -25,5 +25,5 @@
     };
   };
 
-  #environment.etc."i3/config".source = ./common.conf;
+  environment.etc."i3/config".source = ./common.conf;
 }
