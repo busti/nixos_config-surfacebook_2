@@ -5,8 +5,10 @@
     "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/microsoft/surface"
   ];
 
+  # video
   services.xserver = {
     videoDrivers = [ "intel" "nvidia" ];
+    libinput.enable = true;
     deviceSection = ''
       Option "DRI" "3"
       Option "TearFree" "true"
@@ -30,4 +32,8 @@
   };
 
   boot.kernelParams = [ "i915.enable_psr=0" ];
+
+  # audio
+  sound.enable = true;
+  hardware.pulseaudio.enable = true;
 }

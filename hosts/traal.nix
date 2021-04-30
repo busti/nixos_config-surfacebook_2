@@ -2,4 +2,6 @@
 
 {
   networking.hostName = "traal";
+
+
 }

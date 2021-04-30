@@ -4,7 +4,6 @@
   services.xserver = {
     enable = true;
     exportConfiguration = true;
-    libinput.enable = true;
     desktopManager = {
       xterm.enable = false;
     };
@@ -14,13 +13,11 @@
     windowManager.i3 = {
       enable = true;
       extraSessionCommands = ''
-        echo $USER > /tmp/foo
+        if [ ! -f /home/$USER/.config/i3/common ]; then
+          mkdir -p /home/$USER/.config/i3
+          ln -s /etc/i3/config /home/$USER/.config/i3/common
+        fi
       '';
-      #  if [ ! -f /home/$USER/.config/i3/config ]; then
-      #    mkdir -p /home/$USER/.config/i3/config
-      #    cp /etc/i3/config /home/$USER/.config/i3/config
-      #  fi
-      #'';
       extraPackages = with pkgs; [
         dmenu i3status i3lock
       ];
