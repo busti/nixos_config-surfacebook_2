@@ -13,7 +13,9 @@
     };
     windowManager.i3 = {
       enable = true;
-      #extraSessionCommands = ''
+      extraSessionCommands = ''
+        echo $USER > /tmp/foo
+      '';
       #  if [ ! -f /home/$USER/.config/i3/config ]; then
       #    mkdir -p /home/$USER/.config/i3/config
       #    cp /etc/i3/config /home/$USER/.config/i3/config
