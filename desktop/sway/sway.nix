@@ -9,10 +9,28 @@
       swayidle
       # wl-clipboard
       # mako # notification daemon
-      # alacritty # Alacritty is the default terminal in the config
+      alacritty # Alacritty is the default terminal in the config
       dmenu # Dmenu is the default in the config but i recommend wofi since its wayland native
     ];
   };
+
+  environment.systemPackages = with pkgs; [
+    (
+      pkgs.writeTextFile {
+        name = "startsway";
+        destination = "/bin/startsway";
+        executable = true;
+        text = ''
+          #! ${pkgs.bash}/bin/bash
+
+          # first import environment variables from the login manager
+          systemctl --user import-environment
+          # then start the service
+          exec systemctl --user start sway.service
+        '';
+      }
+    )
+  ];
 
   systemd.user.targets.sway-session = {
     description = "Sway compositor session";
@@ -41,5 +59,4 @@
       TimeoutStopSec = 10;
     };
   };
-
 }

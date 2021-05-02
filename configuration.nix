@@ -42,11 +42,11 @@ in
     [
       ./hardware-configuration.nix
       ( import "${path_home-manager}/nixos" )
-      # ./sway.nix
       ./hardware/surfacebook_2.nix
       ./workplaces/home_desk.nix
       ./hosts/traal.nix
-      ./desktop/i3wm/i3wm.nix
+      # ./desktop/i3wm/i3wm.nix
+      ./desktop/sway/sway.nix
       ./software/chromium.nix
       ./software/vscode.nix
     ];
