@@ -23,9 +23,18 @@
     glxinfo
   ];
 
+  environment.etc."sway/config".source = ./common.conf;
+
   programs.sway = {
     enable = true;
-    wrapperFeatures.gtk = true; # so that gtk works properly
+    wrapperFeatures = {
+      base = true;
+      gtk = true;
+    };
+    extraSessionCommands = ''
+      echo "$USER" > /tmp/bar
+      export _JAVA_AWT_WM_NONREPARENTING=1
+    '';
     extraPackages = with pkgs; [
       swaylock
       swayidle
