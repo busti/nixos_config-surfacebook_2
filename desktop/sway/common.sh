@@ -46,20 +46,19 @@ output "Dell Inc. DELL 2007WFP HM0648240VPL"                mode          1680x1
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
+## Keyboard
 input "1118:2338:Microsoft_Surface_Keyboard" {
   xkb_layout de
+  xkb_variant nodeadkeys
+}
+
+## Pointer
+input "1118:2338:Microsoft_Surface_Keyboard_Touchpad" {
+  middle_emulation enabled
+  natural_scroll   enabled
+  scroll_method    two_finger
+  tap              enabled
+  tap_button_map   lrm
 }
 
 ### Key bindings
