@@ -57,6 +57,7 @@ input "1118:2338:Microsoft_Surface_Keyboard_Touchpad" {
   middle_emulation enabled
   natural_scroll   enabled
   scroll_method    two_finger
+  scroll_factor    0.8
   tap              enabled
   tap_button_map   lrm
 }
