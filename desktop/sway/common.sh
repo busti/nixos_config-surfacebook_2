@@ -29,7 +29,7 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 output "Panasonic Industry Company TDM13O56     0x0000B500" mode          3000x2000           scale 1.75
-output "Goldstar Company Ltd 24MB56 410NDPH91976"           mode --custom 1920x1080@59.963 Hz
+output "Goldstar Company Ltd 24MB56 410NDPH91976"           mode --custom 1920x1080@59.963Hz
 output "Dell Inc. DELL 2007WFP HM0648240VPL"                mode          1680x1050           scale 1    transform 270
 
 ### Idle configuration
