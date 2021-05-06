@@ -23,7 +23,8 @@
     glxinfo
   ];
 
-  environment.etc."sway/config".source = ./common.conf;
+  # sway config file type is closer to sh than hocon
+  environment.etc."sway/config".source = ./common.sh;
 
   programs.sway = {
     enable = true;
@@ -32,8 +33,8 @@
       gtk = true;
     };
     extraSessionCommands = ''
-      echo "$USER" > /tmp/bar
       export _JAVA_AWT_WM_NONREPARENTING=1
+
     '';
     extraPackages = with pkgs; [
       swaylock
