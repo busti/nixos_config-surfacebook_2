@@ -58,6 +58,9 @@ output "Dell Inc. DELL 2007WFP HM0648240VPL"                mode          1680x1
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
+input "Microsoft Surface Keyboard" {
+  xkb_layout de
+}
 
 ### Key bindings
 #
