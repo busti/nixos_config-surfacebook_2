@@ -103,6 +103,15 @@ in
     initialPassword = "changeme"; # fixme: remove for final install
   };
 
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [
+      gutenprint gutenprintBin
+      hdlip # hdlipWithPlugin
+      
+    ];
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
