@@ -107,7 +107,7 @@ in
     enable = true;
     drivers = with pkgs; [
       gutenprint gutenprintBin
-      hdlip # hdlipWithPlugin
+      # hdlip # hdlipWithPlugin
       
     ];
   };
