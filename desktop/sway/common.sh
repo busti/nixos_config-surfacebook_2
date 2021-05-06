@@ -1,5 +1,4 @@
 # Default config for sway
-#
 # Read `man 5 sway` for a complete reference.
 
 ### Variables
@@ -19,15 +18,6 @@ set $term alacritty
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
 ### Output configuration
-#
-# Default wallpaper
-#output * bg ~/.config/sway/backgrounds/Sway_Wallpaper_Blue_1920x1080.png fill
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
 output "Panasonic Industry Company TDM13O56     0x0000B500" mode          3000x2000           scale 1.75               pos 0 0
 output "Goldstar Company Ltd 24MB56 410NDPH91976"           mode --custom 1920x1080@59.963Hz                           pos 1714 0
 output "Dell Inc. DELL 2007WFP HM0648240VPL"                mode          1680x1050           scale 1    transform 270 pos 3634 0

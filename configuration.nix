@@ -35,7 +35,7 @@ in
 
   environment.systemPackages = with pkgs; [
     wget curl git htop vim
-    jetbrains.idea-community
+    jetbrains.idea-community jetbrains.webstorm
   ];
 
   imports =
