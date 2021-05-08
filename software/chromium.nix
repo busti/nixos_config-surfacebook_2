@@ -18,7 +18,7 @@
             "toolbar_pin" = "force_pinned";
             "adminSettings" = builtins.toJSON {
               "userSettings" = {
-                "advancedUserEnabled" = true
+                "advancedUserEnabled" = true;
               };
             };
           };
