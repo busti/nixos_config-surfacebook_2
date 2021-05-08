@@ -12,6 +12,18 @@
       "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
     ];
     extraOpts = {
+      "3rdparty" = {
+        "extensions" = {
+          "cjpalhdlnbpafiamejdnhcphjbkeiagm" = {
+            "toolbar_pin" = "force_pinned";
+            "adminSettings" = builtins.toJSON {
+              "userSettings" = {
+                "advancedUserEnabled" = true
+              };
+            };
+          };
+        };
+      };
       "BrowserSignin" = 0;
       "SyncDisabled" = true;
       "PasswordManagerEnabled" = false;
