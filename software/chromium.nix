@@ -19,6 +19,7 @@
       "SpellcheckLanguage" = [
         "de" "en-US"
       ];
+      "DefaultCookieSettings" = 1;
     };
   };
 }
