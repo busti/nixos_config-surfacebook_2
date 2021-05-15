@@ -10,10 +10,10 @@
   };
 
   environment.gnome3.excludePackages = with pkgs.gnome3; [
-    baobab cheese eog epiphany gedit simple-scan totem yelp
+    baobab cheese eog epiphany gedit simple-scan totem yelp evince file-roller geary seahorse
     gnome-calculator gnome-calendar gnome-characters gnome-clocks gnome-contacts
     gnome-font-viewer gnome-logs gnome-maps gnome-music gnome-photos gnome-screenshot
-    gnome-system-monitor gnome-weather
+    gnome-system-monitor gnome-weather gnome-disks
   ];
 
   environment.systemPackages = with pkgs; [ gnomeExtensions.appindicator ];
