@@ -47,6 +47,7 @@ in
       ./hosts/traal.nix
       # ./desktop/i3wm/i3wm.nix
       ./desktop/sway/sway.nix
+      ./desktop/gnome/gnome.nix
       ./software/chromium.nix
       ./software/vscode.nix
     ];
