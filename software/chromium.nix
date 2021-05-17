@@ -10,6 +10,7 @@
     extensions = [
       # "ocaahdebbfolfmndjeplogmgcagdmblk;https://raw.githubusercontent.com/NeverDecaf/chromium-web-store/master/updates.xml"
       "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
+      "eimadpbcbfnmbkopoojfekhnkhdbieeh" # dark reader
     ];
     extraOpts = {
       "3rdparty" = {
