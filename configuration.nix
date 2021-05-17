@@ -45,9 +45,9 @@ in
       ./hardware/surfacebook_2.nix
       # ./workplaces/home_desk.nix
       ./hosts/traal.nix
-      # ./desktop/i3wm/i3wm.nix
-      ./desktop/sway/sway.nix
-      ./desktop/gnome/gnome.nix
+      # ./desktop/env/i3wm/i3wm.nix
+      ./desktop/env/sway/sway.nix
+      ./desktop/env/gnome/gnome.nix
       ./software/chromium.nix
       ./software/vscode.nix
     ];
