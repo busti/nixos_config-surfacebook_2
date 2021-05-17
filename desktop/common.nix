@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }:
 
 {
-  environment.etc."xdg/user-dirs.default".source = ./user-dirs.defaults;
+  environment.etc."xdg/user-dirs.defaults".source = ./user-dirs.defaults;
 }
