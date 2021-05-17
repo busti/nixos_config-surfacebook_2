@@ -45,6 +45,7 @@ in
       ./hardware/surfacebook_2.nix
       # ./workplaces/home_desk.nix
       ./hosts/traal.nix
+      ./desktop/common.nix
       # ./desktop/env/i3wm/i3wm.nix
       ./desktop/env/sway/sway.nix
       ./desktop/env/gnome/gnome.nix
