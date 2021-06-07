@@ -91,7 +91,7 @@ in {
           Type = "oneshot";
           SyslogIdentifier = initialise user;
           ExecStart = let
-            script = writeShellScriptBin (initialise user) ''
+            script = pkgs.writeShellScriptBin (initialise user) ''
               set -e
               mkdir -p ${user.home}/${user.config.path}
               cd ${user.home}/${user.config.path}
