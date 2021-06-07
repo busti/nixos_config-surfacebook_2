@@ -7,8 +7,7 @@ let
     url = "https://github.com/nix-community/home-manager.git";
     rev = "fedfd430f96695997b3eaf8d7e82ca79406afa23";
   };
-in
-{
+in {
   nixpkgs.config.packageOverrides = pkgs: {
     unstable = import path_nixpkgs-unstable {
       config = config.nixpkgs.config;
@@ -30,7 +29,6 @@ in
     extraOptions = ''
       builders-use-substitutes = true
     '';
-
   };
 
   environment.systemPackages = with pkgs; [
@@ -38,20 +36,19 @@ in
     jetbrains.idea-community jetbrains.webstorm jetbrains.clion
   ];
 
-  imports =
-    [
-      ./hardware-configuration.nix
-      ( import "${path_home-manager}/nixos" )
-      ./config/hardware/surfacebook_2.nix
-      # ./config/workplaces/home_desk.nix
-      ./config/hosts/traal.nix
-      ./config/desktop/common.nix
-      # ./config/desktop/env/i3wm/i3wm.nix
-      ./config/desktop/env/sway/sway.nix
-      ./config/desktop/env/gnome/gnome.nix
-      ./config/software/chromium.nix
-      ./config/software/vscode.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ( import "${path_home-manager}/nixos" )
+    ./config/hardware/surfacebook_2.nix
+    # ./config/workplaces/home_desk.nix
+    ./config/hosts/traal.nix
+    ./config/desktop/common.nix
+    # ./config/desktop/env/i3wm/i3wm.nix
+    ./config/desktop/env/sway/sway.nix
+    ./config/desktop/env/gnome/gnome.nix
+    ./config/software/chromium.nix
+    ./config/software/vscode.nix
+  ];
 
   nixpkgs.config.allowUnfree = true;
 
@@ -140,7 +137,6 @@ in
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "20.09"; # Did you read the comment?
-
 }
 
 
