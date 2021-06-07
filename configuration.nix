@@ -2,11 +2,6 @@
 
 let
   path_nixpkgs-unstable = builtins.fetchTarball "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
-
-  path_home-manager = builtins.fetchGit {
-    url = "https://github.com/nix-community/home-manager.git";
-    rev = "fedfd430f96695997b3eaf8d7e82ca79406afa23";
-  };
 in {
   nixpkgs.config.packageOverrides = pkgs: {
     unstable = import path_nixpkgs-unstable {
@@ -38,7 +33,7 @@ in {
 
   imports = [
     ./hardware-configuration.nix
-    ( import "${path_home-manager}/nixos" )
+    ./modules/home-config.nix
     ./config/hardware/surfacebook_2.nix
     # ./config/workplaces/home_desk.nix
     ./config/hosts/traal.nix
@@ -100,6 +95,11 @@ in {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "audio" ]; # Enable ‘sudo’ for the user.
     initialPassword = "changeme"; # fixme: remove for final install
+    config = {
+      fetch = "https://github.com/busti/dotconfig";
+      push = "git@github.com:busti/dotconfig";
+      install = "./install";
+    };
   };
 
   services.printing = {
