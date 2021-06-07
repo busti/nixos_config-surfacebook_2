@@ -82,7 +82,7 @@ in {
         # fetch remote data
         after = [ (service (check user)) "nix-daemon.socket" "network-online.target" ];
         bindsTo = [ (service (check user)) "nix-daemon.socket" "network-online.target" ];
-        path = [ git nix ];
+        path = with pkgs; [ git nix ];
         environment = {
           NIX_PATH = builtins.concatStringsSep ":" config.nix.nixPath;
         };
