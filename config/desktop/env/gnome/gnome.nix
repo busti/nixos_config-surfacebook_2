@@ -5,7 +5,7 @@
     xserver = {
       enable = true;
       displayManager.gdm.enable = true;
-      desktopManager.gnome3 = {
+      desktopManager.gnome = {
         enable = true;
         extraGSettingsOverrides = ''
           [org.gnome.mutter]
@@ -15,7 +15,7 @@
     };
   };
 
-  environment.gnome3.excludePackages = with pkgs.gnome3; [
+  environment.gnome3.excludePackages = with pkgs.gnome; [
     baobab cheese eog epiphany gedit simple-scan totem yelp evince file-roller geary seahorse
     gnome-calculator gnome-calendar gnome-characters gnome-clocks gnome-contacts
     gnome-font-viewer gnome-logs gnome-maps gnome-music gnome-photos gnome-screenshot
