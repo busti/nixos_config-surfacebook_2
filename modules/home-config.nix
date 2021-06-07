@@ -66,7 +66,7 @@ in {
           SyslogIdentifier = check user;
           Type = "oneshot";
           RemainAfterExit = true;
-          ExecStart = "${coreutils}/bin/true";
+          ExecStart = "${pkgs.coreutils}/bin/true";
         };
       };
       "${initialise user}" = {
