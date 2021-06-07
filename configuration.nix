@@ -42,15 +42,15 @@ in
     [
       ./hardware-configuration.nix
       ( import "${path_home-manager}/nixos" )
-      ./hardware/surfacebook_2.nix
-      # ./workplaces/home_desk.nix
-      ./hosts/traal.nix
-      ./desktop/common.nix
-      # ./desktop/env/i3wm/i3wm.nix
-      ./desktop/env/sway/sway.nix
-      ./desktop/env/gnome/gnome.nix
-      ./software/chromium.nix
-      ./software/vscode.nix
+      ./config/hardware/surfacebook_2.nix
+      # ./config/workplaces/home_desk.nix
+      ./config/hosts/traal.nix
+      ./config/desktop/common.nix
+      # ./config/desktop/env/i3wm/i3wm.nix
+      ./config/desktop/env/sway/sway.nix
+      ./config/desktop/env/gnome/gnome.nix
+      ./config/software/chromium.nix
+      ./config/software/vscode.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
