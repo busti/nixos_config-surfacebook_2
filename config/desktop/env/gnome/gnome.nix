@@ -33,6 +33,8 @@
     gnome-system-monitor gnome-weather gnome-disk-utility pkgs.gnome-connections
   ];
 
-  environment.systemPackages = with pkgs; [ gnomeExtensions.appindicator ];
+  environment.systemPackages = with pkgs.gnomeExtensions; [
+    appindicator pixel-saver
+  ];
   services.udev.packages = with pkgs; [ gnome3.gnome-settings-daemon ];
 }
