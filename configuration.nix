@@ -3,11 +3,11 @@
 let
   path_nixpkgs-unstable = builtins.fetchTarball "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
 in {
-  nixpkgs.config.packageOverrides = pkgs: {
-    unstable = import path_nixpkgs-unstable {
-      config = config.nixpkgs.config;
-    };
-  };
+  # nixpkgs.config.packageOverrides = pkgs: {
+  #   unstable = import path_nixpkgs-unstable {
+  #     config = config.nixpkgs.config;
+  #   };
+  # };
 
   nix = {
     binaryCaches = [ "https://nixcache.neulandlabor.de" ];
@@ -136,7 +136,7 @@ in {
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "20.09"; # Did you read the comment?
+  system.stateVersion = "21.05"; # Did you read the comment?
 }
 
 
