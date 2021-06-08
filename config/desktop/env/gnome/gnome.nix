@@ -15,6 +15,10 @@
     };
   };
 
+  programs.chromium.extensions = [
+    "gphhapmejobijbbhgpjhcjognlahblep" # gnome shell integration
+  ];
+
   environment.gnome3.excludePackages = with pkgs.gnome; [
     baobab      # disk usage analyzer
     cheese      # photo booth
