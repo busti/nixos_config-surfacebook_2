@@ -23,6 +23,9 @@
               };
             };
           };
+          "eimadpbcbfnmbkopoojfekhnkhdbieeh" = {
+            "toolbar_pin" = "force_pinned";
+          };
         };
       };
       "BrowserSignin" = 0;
