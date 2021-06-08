@@ -19,7 +19,7 @@
     "gphhapmejobijbbhgpjhcjognlahblep" # gnome shell integration
   ];
 
-  environment.gnome3.excludePackages = with pkgs.gnome; [
+  environment.gnome.excludePackages = with pkgs.gnome; [
     baobab      # disk usage analyzer
     cheese      # photo booth
     eog         # image viewer
@@ -40,5 +40,5 @@
   environment.systemPackages = with pkgs.gnomeExtensions; [
     appindicator pixel-saver
   ];
-  services.udev.packages = with pkgs; [ gnome3.gnome-settings-daemon ];
+  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 }
