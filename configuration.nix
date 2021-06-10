@@ -98,7 +98,8 @@ in {
     config = {
       fetch = "https://github.com/busti/dotfiles";
       push = "git@github.com:busti/dotfiles";
-      install = "./install";
+      path = ".dotfiles";
+      install = "./install.sh";
     };
   };
 
