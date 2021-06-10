@@ -38,8 +38,14 @@
   ];
 
   environment.systemPackages = with pkgs.gnomeExtensions; [
-    appindicator pixel-saver remove-rounded-corners coverflow-alt-tab arrange-windows sound-output-device-chooser
-    autohide-battery bluetooth-quick-connect
+    appindicator
+    pixel-saver pkgs.xorg.xprop
+    remove-rounded-corners
+    coverflow-alt-tab
+    arrange-windows
+    sound-output-device-chooser
+    autohide-battery
+    bluetooth-quick-connect
   ];
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 }
