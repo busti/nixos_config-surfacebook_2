@@ -96,8 +96,8 @@ in {
     extraGroups = [ "wheel" "networkmanager" "audio" ]; # Enable ‘sudo’ for the user.
     initialPassword = "changeme"; # fixme: remove for final install
     config = {
-      fetch = "https://github.com/busti/dotconfig";
-      push = "git@github.com:busti/dotconfig";
+      fetch = "https://github.com/busti/dotfiles";
+      push = "git@github.com:busti/dotfiles";
       install = "./install";
     };
   };
