@@ -28,7 +28,7 @@ in {
 
   environment.systemPackages = with pkgs; [
     wget curl git htop vim
-    jetbrains.idea-community jetbrains.webstorm jetbrains.clion
+
   ];
 
   imports = [
@@ -39,7 +39,7 @@ in {
     ./config/hosts/traal.nix
     ./config/desktop/common.nix
     # ./config/desktop/env/i3wm/i3wm.nix
-    ./config/desktop/env/sway/sway.nix
+    # ./config/desktop/env/sway/sway.nix
     ./config/desktop/env/gnome/gnome.nix
     ./config/software/chromium.nix
     ./config/software/vscode.nix
