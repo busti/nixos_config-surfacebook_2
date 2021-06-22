@@ -11,6 +11,7 @@
       # "ocaahdebbfolfmndjeplogmgcagdmblk;https://raw.githubusercontent.com/NeverDecaf/chromium-web-store/master/updates.xml"
       "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
       "eimadpbcbfnmbkopoojfekhnkhdbieeh" # dark reader
+      "nngceckbapebfimnlniiiahkandclblb" # bitwarden
     ];
     extraOpts = {
       "3rdparty" = {
@@ -24,6 +25,9 @@
             };
           };
           "eimadpbcbfnmbkopoojfekhnkhdbieeh" = {
+            "toolbar_pin" = "force_pinned";
+          };
+          "nngceckbapebfimnlniiiahkandclblb" = {
             "toolbar_pin" = "force_pinned";
           };
         };
