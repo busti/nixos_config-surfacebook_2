@@ -19,10 +19,6 @@ in {
       persistent = true;
       ranomizedDelaySec = "45min";
     };
-    extraOptions = ''
-      min-free = ${toString (5 * 1024 * 1024 * 1024)}
-      max-free = ${toString (10 * 1024 * 1024 * 1024)}
-    '';
     buildMachines = [{
       hostName = "builder";
       system = "x86_64-linux";
@@ -34,6 +30,8 @@ in {
     distributedBuilds = true;
     extraOptions = ''
       builders-use-substitutes = true
+      min-free = ${toString (5 * 1024 * 1024 * 1024)}
+      max-free = ${toString (10 * 1024 * 1024 * 1024)}
     '';
   };
 
