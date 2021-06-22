@@ -12,6 +12,17 @@ in {
   nix = {
     binaryCaches = [ "https://nixcache.neulandlabor.de" ];
     binaryCachePublicKeys = [ "nixcache.neulandlabor.de:iWPJklU/Tq9NdFWUcO8S7TBHwUjyZMjKIkCIWOei/Tw=" ];
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 24d";
+      persistent = true;
+      ranomizedDelaySec = "45min";
+    };
+    extraOptions = ''
+      min-free = ${toString (5 * 1024 * 1024 * 1024)}
+      max-free = ${toString (10 * 1024 * 1024 * 1024)}
+    '';
     buildMachines = [{
       hostName = "builder";
       system = "x86_64-linux";
