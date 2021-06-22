@@ -77,6 +77,7 @@ in {
         preLVM = true;
       };
     };
+    cleanTmpDir = true;
   };
 
   time.timeZone = "Europe/Berlin";
