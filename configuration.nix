@@ -17,7 +17,7 @@ in {
       dates = "weekly";
       options = "--delete-older-than 24d";
       persistent = true;
-      ranomizedDelaySec = "45min";
+      randomizedDelaySec = "45min";
     };
     buildMachines = [{
       hostName = "builder";
