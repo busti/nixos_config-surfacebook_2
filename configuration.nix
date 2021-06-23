@@ -37,7 +37,7 @@ in {
 
   environment.systemPackages = with pkgs; [
     wget curl git htop vim
-
+    bitwarden-cli
   ];
 
   imports = [
