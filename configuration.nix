@@ -33,6 +33,9 @@ in {
       min-free = ${toString (5 * 1024 * 1024 * 1024)}
       max-free = ${toString (10 * 1024 * 1024 * 1024)}
     '';
+    trustedUsers = [
+      "mbust"
+    ];
   };
 
   environment.systemPackages = with pkgs; [
