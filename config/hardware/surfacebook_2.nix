@@ -5,7 +5,20 @@
     "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/microsoft/surface"
   ];
 
-  services.xserver.videoDrivers = [ "intel" "displaylink" "nvidia" ];
+  services.xserver.videoDrivers = [ "modesetting" "displaylink" "nvidia" ];
+
+  hardware = {
+    opengl.driSupport32Bit = true;
+    nvidia = {
+      optimus_prime = {
+        enable = true;
+        intelBusId = "PCI:00:02:0";
+        nvidiaBusId = "PCI:02:00:0";
+      };
+      modesetting.enable = true;
+    };
+  };
+
 
   nixpkgs.config.packageOverrides = pkgs: {
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
