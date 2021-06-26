@@ -17,7 +17,8 @@ in {
     opengl.driSupport32Bit = true;
     nvidia = {
       prime = {
-        offload.enable = true;
+        sync.enable = true;
+        sync.allowExternalGPU = true;
         intelBusId = "PCI:00:02:0";
         nvidiaBusId = "PCI:02:00:0";
       };
