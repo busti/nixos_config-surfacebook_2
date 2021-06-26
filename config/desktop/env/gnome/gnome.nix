@@ -7,8 +7,8 @@
       exportConfiguration = true;
       displayManager.gdm = {
         enable = true;
-        wayland = false;
-        nvidiaWayland = false;
+        wayland = true;
+        nvidiaWayland = true;
       };
       desktopManager.gnome = {
         enable = true;
