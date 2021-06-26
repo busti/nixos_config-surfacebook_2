@@ -4,7 +4,11 @@
   services = {
     xserver = {
       enable = true;
-      displayManager.gdm.enable = true;
+      displayManager.gdm = {
+        enable = true;
+        wayland = true;
+        nvidiaWayland = true;
+      };
       desktopManager.gnome = {
         enable = true;
         extraGSettingsOverrides = ''
