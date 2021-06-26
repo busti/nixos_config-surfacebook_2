@@ -15,7 +15,8 @@
         intelBusId = "PCI:00:02:0";
         nvidiaBusId = "PCI:02:00:0";
       };
-      modesetting.enable = true;
+      # modesetting.enable = true;
+      nvidiaPersistenced = true;
     };
   };
 
