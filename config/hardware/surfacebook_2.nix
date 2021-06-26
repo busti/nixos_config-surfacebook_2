@@ -5,7 +5,7 @@
     "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/microsoft/surface"
   ];
 
-  services.xserver.videoDrivers = [ "intel" "displaylink" ];
+  services.xserver.videoDrivers = [ "intel" "displaylink" "nvidia" ];
 
   nixpkgs.config.packageOverrides = pkgs: {
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
