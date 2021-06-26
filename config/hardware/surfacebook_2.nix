@@ -10,8 +10,8 @@
   hardware = {
     opengl.driSupport32Bit = true;
     nvidia = {
-      optimus_prime = {
-        enable = true;
+      prime = {
+        offload.enable = true;
         intelBusId = "PCI:00:02:0";
         nvidiaBusId = "PCI:02:00:0";
       };
