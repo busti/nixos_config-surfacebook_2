@@ -11,7 +11,7 @@ in {
     "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/microsoft/surface"
   ];
 
-  services.xserver.videoDrivers = [ "nvidia" "displaylink" "modesetting" ];
+  services.xserver.videoDrivers = [ "nvidia" "displaylink" ];
 
   hardware = {
     opengl.driSupport32Bit = true;
