@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }:
 
 {
-  services.xserver.videoDrivers = [ "displaylink" ];
+  # services.xserver.videoDrivers = [ "displaylink" ];
 }
