@@ -3,11 +3,11 @@
 let
   path_nixpkgs-unstable = builtins.fetchTarball "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
 in {
-  # nixpkgs.config.packageOverrides = pkgs: {
-  #   unstable = import path_nixpkgs-unstable {
-  #     config = config.nixpkgs.config;
-  #   };
-  # };
+  nixpkgs.config.packageOverrides = pkgs: rec {
+    unstable = import path_nixpkgs-unstable {
+      config = config.nixpkgs.config;
+    };
+  };
 
   nix = {
     binaryCaches = [ "https://nixcache.neulandlabor.de" ];
