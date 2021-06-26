@@ -18,7 +18,7 @@ in {
     nvidia = {
       prime = {
         sync.enable = true;
-        sync.allowExternalGPU = true;
+        sync.allowExternalGpu = true;
         intelBusId = "PCI:00:02:0";
         nvidiaBusId = "PCI:02:00:0";
       };
