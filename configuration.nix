@@ -40,6 +40,7 @@ in {
 
   environment.systemPackages = with pkgs; [
     wget curl git htop vim
+    pciutils
     bitwarden-cli
   ];
 
