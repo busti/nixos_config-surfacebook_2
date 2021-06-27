@@ -95,6 +95,7 @@ in {
     networkmanager = {
       enable = true;
     };
+    enableIPv6 = false;
   };
 
   environment.pathsToLink = [ "/libexec" ];
