@@ -25,6 +25,9 @@ in {
       modesetting.enable = true;
       nvidiaPersistenced = true;
     };
+    bumblebee = {
+      enable = true;
+    };
   };
 
   environment.systemPackages = [ nvidia-offload ];
