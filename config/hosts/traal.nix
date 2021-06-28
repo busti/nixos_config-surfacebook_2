@@ -3,5 +3,5 @@
 {
   networking.hostName = "traal";
 
-
+  hardware.bluetooth.disabledPlugins = [ avrcp ];
 }
