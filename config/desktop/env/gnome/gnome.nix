@@ -51,6 +51,7 @@
     sound-output-device-chooser
     autohide-battery
     bluetooth-quick-connect
+    airpods-battery-status
   ];
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 }
