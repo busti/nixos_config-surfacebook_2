@@ -30,7 +30,7 @@ in {
     };
   };
 
-  environment.systemPackages = [ nvidia-offload nvtop ];
+  environment.systemPackages = with pkgs; [ nvidia-offload nvtop ];
 
   nixpkgs.config.packageOverrides = pkgs: {
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
