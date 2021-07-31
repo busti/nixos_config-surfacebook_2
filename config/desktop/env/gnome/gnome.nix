@@ -38,7 +38,7 @@
     geary       # email client
     seahorse    # password manager
     gnome-calculator gnome-calendar gnome-characters gnome-clocks gnome-contacts
-    gnome-font-viewer gnome-logs gnome-maps gnome-music gnome-photos gnome-screenshot
+    gnome-font-viewer gnome-maps gnome-music gnome-photos gnome-screenshot
     gnome-system-monitor gnome-weather gnome-disk-utility pkgs.gnome-connections
   ];
 
@@ -51,6 +51,10 @@
     sound-output-device-chooser
     autohide-battery
     bluetooth-quick-connect
+    extension-list
+    status-area-horizontal-spacing
+    night-theme-switcher
+    mpris-indicator-button
     # airpods-battery-status
   ];
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
