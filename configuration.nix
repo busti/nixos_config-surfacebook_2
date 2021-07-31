@@ -106,9 +106,11 @@ in {
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  virtualisation.docker.enable = true;
+
   users.users.mbust = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "audio" "dialout" "bumblebee" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "audio" "dialout" "bumblebee" "docker" ];
     initialPassword = "changeme"; # fixme: remove for final install
     config = {
       fetch = "https://github.com/busti/dotfiles";
