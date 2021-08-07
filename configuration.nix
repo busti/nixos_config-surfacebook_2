@@ -39,9 +39,17 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
+    # essentials
     wget curl git htop vim
+
+    # nice to have
     pciutils
+
+    # setup specific
     bitwarden-cli
+
+    # sometimes needed, small footprint
+    pkg-config
   ];
 
   imports = [
