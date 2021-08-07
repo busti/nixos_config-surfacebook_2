@@ -49,7 +49,7 @@ in {
     bitwarden-cli
 
     # sometimes needed, small footprint
-    pkg-config
+    pkg-config bintools-unwrapped
   ];
 
   imports = [
