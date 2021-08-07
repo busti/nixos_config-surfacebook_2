@@ -56,6 +56,7 @@ in {
     ./config/desktop/env/gnome/gnome.nix
     ./config/software/chromium.nix
     ./config/software/vscode.nix
+    ./config/software/openssl.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
