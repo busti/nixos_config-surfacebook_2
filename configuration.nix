@@ -105,6 +105,7 @@ in {
       enable = true;
     };
     enableIPv6 = false;
+    firewall.enable = false;
   };
 
   environment.pathsToLink = [ "/libexec" ];
