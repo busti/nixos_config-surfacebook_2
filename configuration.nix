@@ -55,7 +55,8 @@ in {
   imports = [
     ./hardware-configuration.nix
     ./modules/home-config.nix
-    ./config/hardware/surfacebook_2.nix
+    ./config/hardware/vendor-specific/surfacebook_2.nix
+    ./config/hardware/audio.nix
     # ./config/workplaces/home_desk.nix
     ./config/hosts/traal.nix
     ./config/desktop/common.nix

@@ -59,6 +59,4 @@ in {
   boot.kernelParams = [ "i915.enable_psr=0" ];
 
   # audio
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
 }
