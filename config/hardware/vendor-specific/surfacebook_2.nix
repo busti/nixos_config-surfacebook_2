@@ -33,7 +33,7 @@ in {
         nvidiaBusId = "PCI:02:00:0";
       };
       modesetting.enable = true;
-      nvidiaPersistenced = true;
+      nvidiaPersistenced = false;
     };
     bumblebee = {
       enable = true;
