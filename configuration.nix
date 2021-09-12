@@ -64,7 +64,7 @@ in {
     # ./config/desktop/env/sway/sway.nix
     ./config/desktop/env/gnome/gnome.nix
     ./config/software/chromium.nix
-    ./config/software/vscode.nix
+    # ./config/software/vscode.nix
     ./config/software/openssl.nix
   ];
 
