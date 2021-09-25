@@ -46,7 +46,7 @@ in {
     pciutils
 
     # setup specific
-    bitwarden-cli
+    home-manager bitwarden-cli
 
     # sometimes needed, small footprint
     pkg-config bintools-unwrapped
