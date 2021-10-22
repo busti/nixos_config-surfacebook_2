@@ -1,4 +1,7 @@
 ( cd /etc/nixos/ || exit
   git pull origin master
-  nixos-rebuild switch
+
+  sources=$(nix-build nix/sources-dir.nix --no-out-link)
+
+  nixos-rebuild switch -I $sources
 )
