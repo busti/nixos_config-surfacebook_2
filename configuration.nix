@@ -4,9 +4,10 @@ let
   path_nixpkgs-unstable = builtins.fetchTarball "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
 in {
   nixpkgs.config.packageOverrides = pkgs: rec {
-    unstable = import path_nixpkgs-unstable {
-      config = config.nixpkgs.config;
-    };
+    unstable = import path_nixpkgs-unstable {};
+    #   config = config.nixpkgs.config;
+    # };
+    iptsd = unstable.iptsd;
   };
 
   nix = {
@@ -50,6 +51,8 @@ in {
 
     # sometimes needed, small footprint
     pkg-config bintools-unwrapped
+
+    inetutils
   ];
 
   imports = [
@@ -157,6 +160,8 @@ in {
     permitRootLogin = "prohibit-password";
     openFirewall = false;
   };
+
+  services.tftpd.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
